@@ -3,50 +3,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Puzzle Nyblecraft</title>
-	<link href="./style/main.css" rel="stylesheet"/>
+    <link rel='stylesheet' href='dist/style.css'>
 </head>
 <body onload="checkBrowser();">
 	<header>
 		<h1> Puzzle </h1>
 	</header>
-	
-	<form name="User" id="user-form">
-		<label for="username">Please, enter your name!</label>
-		<input type="text" id="username" name="username" placeholder="Your name" />
-		<input type="button" onclick="submitUser()" value="Start">
-	</form>
-	
-	<p id="timer">0h 0m 0s</p>
 
-	<div id="top10"></div>
-
-	<section id="puzzleContainer">
-		<div id="puzzle">
-			<div class="containerPiece" id="area1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area2" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area3" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area4" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area5" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area6" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area7" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area8" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-			<div class="containerPiece" id="area9" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-		</div>	
-		<div id="containerPieces" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return dropInContainer(event)">
-			<img id="piece3" src="./img/kotel3.jpg" alt="piece3" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece5" src="./img/kotel5.jpg" alt="piece2" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece7" src="./img/kotel7.jpg" alt="piece4" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece1" src="./img/kotel1.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece2" src="./img/kotel2.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece4" src="./img/kotel4.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece9" src="./img/kotel9.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece8" src="./img/kotel8.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-			<img id="piece6" src="./img/kotel6.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
-		</div>
-		
+	<section class="player">
+		<form name="User" id="user-form">
+			<p>Please, enter your name!</p>
+			<input type="text" id="username" name="username" placeholder="Your name"/>
+			<button type="button" onclick="submitUser()">Start</button>
+		</form>
+		<p id="timer">0h 0m 0s</p>
 	</section>
 
-	 <script src="./js/main.js"></script>
+	<div class="container">
+		<section class="top10">
+			<h2>Top 10:</h2>
+			<div id="top10"></div>
+		</section>
 
+		<section id="puzzleContainer">
+			<div id="puzzle">
+				<div class="containerPiece" id="area1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area2" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area3" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area4" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area5" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area6" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area7" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area8" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+				<div class="containerPiece" id="area9" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+			</div>
+			<div id="containerPieces" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return dropInContainer(event)">
+				<img id="piece3" src="./img/kotel3.jpg" alt="piece3" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece5" src="./img/kotel5.jpg" alt="piece2" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece7" src="./img/kotel7.jpg" alt="piece4" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece1" src="./img/kotel1.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece2" src="./img/kotel2.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece4" src="./img/kotel4.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece9" src="./img/kotel9.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece8" src="./img/kotel8.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+				<img id="piece6" src="./img/kotel6.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+			</div>
+		</section>
+	</div>
+
+	 <script src="./js/main.js"></script>
 </body>
 </html>

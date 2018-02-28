@@ -9,6 +9,7 @@ Puzzle requires [json-server](https://github.com/typicode/json-server) to run.
 ```sh
 $ npm install
 $ npm install -g json-server
+$ npm run build
 $ cd server
 $ json-server --watch db.json --port 3005
 ```

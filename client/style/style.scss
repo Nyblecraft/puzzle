@@ -1,0 +1,140 @@
+$themeColor-Light: #e1eff3;
+$themeColor-Dark: #92b6b6;
+$color-shadow: #777;
+$color-black: rgba(20,20,20,0.8);
+$color-grey: #a4a4a4;
+$color-text: #4e6e6e;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  background-color: $themeColor-Light;
+
+  header {
+    background: $themeColor-Dark;
+    h1{
+      color: $color-black;
+      padding: 15px 0;
+      text-align: center;
+    }
+  }
+
+  .player {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    #user-form {
+      p {
+        color: $color-black;
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      input {
+        border: 1px solid $color-grey;
+        border-radius: 5px;
+        height: 38px;
+        width: 250px;
+        padding-left: 12px;
+      }
+      button {
+        background: $color-text;
+        border: none;
+        color: #fff;
+        border-radius: 40px;
+        height: 38px;
+        margin-left: 15px;
+        width: 80px;
+        &:hover {
+          background: $themeColor-Dark;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #timer {
+      display: none;
+      color: $color-text;
+      font-size: 18px;
+    }
+
+  }
+
+  .container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 1110px;
+    width: 100%;
+    
+    .top10 {
+      h2 {
+        color: $color-black;
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      #top10 {
+        padding-left: 15px;
+        p {
+          color: $color-text;
+          display: list-item;
+          list-style-type: decimal;
+          font-size: 18px;
+          text-transform: capitalize;
+          &:not(:last-child) {
+            padding-bottom: 8px;
+          }
+        }
+      }
+
+    }
+
+    #puzzleContainer {
+      background: $color-black;
+      box-shadow: 0px 0px 10px  2px $color-shadow;
+      padding: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+
+      img {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+
+      #puzzle {
+        background: #465050;
+        border: 1px solid #f7ebeb;
+        height: 306px;
+        width: 306px;
+
+        .containerPiece {
+          width: 100px;
+          height: 100px;
+          float: left;
+          border: 1px solid #f7ebeb;
+        }
+
+      }
+
+      #containerPieces{
+        background: $themeColor-Dark;
+        width: 306px;
+        height: 155px;
+        margin-top: 20px;
+        position: relative;
+      }
+
+    }
+
+  }
+
+}

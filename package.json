@@ -2,9 +2,10 @@
   "name": "puzzle",
   "version": "1.0.0",
   "description": "Puzzle",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Nyblecraft/puzzle/issues"
   },
-  "homepage": "https://github.com/Nyblecraft/puzzle#readme"
+  "homepage": "https://github.com/Nyblecraft/puzzle#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  }
 }
