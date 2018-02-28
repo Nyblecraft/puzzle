@@ -3,13 +3,13 @@ var score;
 
 function start(e) {
 	e.dataTransfer.effecAllowed = 'move';
-	e.dataTransfer.setData("Text", e.target.id);
+	e.dataTransfer.setData("text", e.target.id);
 	e.target.style.opacity = '0.4'; 
 }
 
 function end(e){
 	e.target.style.opacity = '';		
-	e.dataTransfer.clearData("Data");			
+	e.dataTransfer.clearData("Data");		
 }
 
 function enter(e) {
@@ -17,14 +17,28 @@ function enter(e) {
 }
 
 function over(e) {
-	return e.target.className == "containerPiece" || e.target.id == "containerPieces" ? false : true;
+	return e.target.id === 'containerPieces' || e.target.className === 'containerPiece' ? false : true;
 }
     
 function drop(e) {
 	e.preventDefault();
-	const dragItem = e.dataTransfer.getData("Text");
-	e.target.appendChild(document.getElementById(dragItem));
-	checkOutThePuzzle();
+	const dragItem = e.dataTransfer.getData("text");
+	const id = dragItem.split('piece')[1];
+	const areaId = e.target.id.split('area')[1];
+	if(areaId === id) {	
+		document.getElementById(dragItem).removeAttribute("style");
+		e.target.appendChild(document.getElementById(dragItem));
+		checkOutThePuzzle();
+	}
+}
+
+function dropInContainer(e) {
+	e.preventDefault();
+	console.log(e);
+	const dragItem = e.dataTransfer.getData("text");
+	const element = document.getElementById(dragItem);
+	element.setAttribute("style", `top: ${e.layerY - 50}px; left: ${e.layerX - 50}px`);
+	e.target.appendChild(element);
 }
 
 function checkOutThePuzzle() {
@@ -46,6 +60,7 @@ function checkBrowser() {
 		alert("Your browser does not support HTML5 Drag & Drop. Try a different browser.");
 	} else {
 		getTop10Result();
+		initializeImageContainer();
 	}
 }
 
@@ -68,13 +83,9 @@ function startTimer() {
 
 	    let now = new Date().getTime();
 	    score = now - countUpDate;
+	    const timeString = getTimeString(score);
 
-	    let hours = Math.floor((score % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	    let minutes = Math.floor((score % (1000 * 60 * 60)) / (1000 * 60));
-	    let seconds = Math.floor((score % (1000 * 60)) / 1000);
-	    
-	    document.getElementById("timer").innerHTML = hours + "h "
-	    + minutes + "m " + seconds + "s ";
+	    document.getElementById("timer").innerHTML = timeString;
 
 	    if (score > 1000 * 60 * 60 * 24) {
 	        clearInterval(scoreTimer);
@@ -82,6 +93,13 @@ function startTimer() {
 	        score = 0;
 	    }
 	}, 1000);
+}
+
+function getTimeString(score) {
+	let hours = Math.floor((score % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((score % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((score % (1000 * 60)) / 1000);
+    return `${hours}h ${minutes}m ${seconds}s`;
 }
 
 function stopTimer() {
@@ -124,7 +142,7 @@ function getTop10Result() {
 	.then(status)
 	.then(json)
 	.then((data) => {
-		const top10 = data.map((item) => `<p>${item.name}: ${item.score}</p>`);
+		const top10 = data.map((item) => `<p>${item.name}: ${getTimeString(item.score)}</p>`);
 		document.getElementById("top10").innerHTML = top10.join('\n');
 	})
 	.catch((err) => {
@@ -142,4 +160,11 @@ function status(response) {
 
 function json(response) {
   return response.json()
+}
+
+function initializeImageContainer() {
+	const children = document.getElementById("containerPieces").children;
+	for(let i = 0; i < children.length; i++) {
+		children[i].setAttribute("style", `top: ${Math.random() * 53}px; left: ${Math.random() * 206}px`);
+	}
 }

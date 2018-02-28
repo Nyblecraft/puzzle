@@ -8,7 +8,7 @@ h1 {
 
 /* Contenedor del puzzle*/
 #puzzleContainer {
-	display: none;
+	/*display: none;  */
 	margin: 20px auto;
 	width: 306px;
 	background: rgba(20,20,20,0.8);
@@ -24,8 +24,9 @@ h1 {
 #containerPieces{
 	background: #afa9a9;
 	width: 306px;
-	height: 306px;
+	height: 153px;
 	margin-top: 20px;
+	position: relative;
 }
 
 #puzzle {
@@ -44,7 +45,7 @@ h1 {
 	padding: 1px;
 	width: 100px;
 	height: 100px;
-	float: left;
+	position: absolute;
 }
 
 #timer {
