@@ -1,6 +1,6 @@
 # Puzzle
 
-[![N|Solid](https://nyblecraft.com/images/logo_black.svg)](https://nyblecraft.com/images/logo_black.svg)
+[![N|Solid](https://nyblecraft.com/images/logo_black.svg)](https://nyblecraft.com/)
 
 ### Installation
 
