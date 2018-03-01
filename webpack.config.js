@@ -3,10 +3,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname,
-    entry: "./client/js/main.js",
+    entry: {
+        main: "./client/js/main.js",
+        ui: "./client/js/ui.js"
+    },
     output: {
         path: __dirname + "/client/dist",
-        filename: "bundle.js"
+        filename: "[name].bundle.js",
+        libraryTarget: 'var',
+        library: 'ui'
     },
     module: {
         rules: [
