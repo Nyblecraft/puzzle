@@ -1,3 +1,5 @@
+import '../style/style.scss';
+
 var scoreTimer;
 var score;
 
@@ -168,3 +170,12 @@ function initializeImageContainer() {
 		children[i].setAttribute("style", `top: ${Math.random() * 53}px; left: ${Math.random() * 206}px`);
 	}
 }
+
+window.checkBrowser = checkBrowser;
+window.submitUser = submitUser;
+window.enter = enter;
+window.over = over;
+window.drop = drop;
+window.start = start;
+window.end = end;
+window.dropInContainer = dropInContainer;

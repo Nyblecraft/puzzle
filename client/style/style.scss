@@ -28,7 +28,10 @@ body {
     justify-content: center;
     margin-top: 20px;
 
-    #user-form {
+    form {
+      &#save-result {
+        display: none;
+      }
       p {
         color: $color-black;
         font-size: 18px;
@@ -49,7 +52,7 @@ body {
         border-radius: 40px;
         height: 38px;
         margin-left: 15px;
-        width: 80px;
+        width: 100px;
         &:hover {
           background: $themeColor-Dark;
           cursor: pointer;
@@ -98,6 +101,7 @@ body {
     }
 
     #puzzleContainer {
+      display: none;
       background: $color-black;
       box-shadow: 0px 0px 10px  2px $color-shadow;
       padding: 20px;
